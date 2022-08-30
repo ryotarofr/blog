@@ -9,11 +9,12 @@ export const SeachBarDefaultFocus = () => {
   };
   return (
     <>
-      <div ref={focusTrapRef}>
+      <div ref={focusTrapRef} className="text-center">
         <input
+          size={65}
           data-autofocus
           onClick={handleClick}
-          className="px-2 order-solid border-2 rounded-lg border-slate-300"
+          className="px-2 py-1 order-solid border-2 rounded-lg border-slate-300"
           placeholder="キーワードを入力"
         />
       </div>
