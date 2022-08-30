@@ -1,7 +1,14 @@
-import '../styles/globals.css'
+import { Navbar } from "../components/Navigation/Navbar";
+import { CloseButtonProvider } from "../context/CloseButtonContext";
+import "../styles/globals.css";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+export default function MyApp({ Component, pageProps }) {
+  return (
+    <>
+      <CloseButtonProvider>
+        <Component {...pageProps} />
+        <Navbar />
+      </CloseButtonProvider>
+    </>
+  );
 }
-
-export default MyApp

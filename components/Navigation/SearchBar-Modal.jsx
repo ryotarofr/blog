@@ -1,16 +1,17 @@
 import { Modal, Group, CloseButton, useMantineTheme } from "@mantine/core";
-
+import { useCloseSearchButtonContext } from "../../context/CloseButtonContext";
 import { SeachBarDefaultFocus } from "./SearchBar-DefaultFocus";
 
-export const SearchBarModal = ({ opened, setOpened }) => {
+export const SearchBarModal = () => {
+  const [seachOpened, setSearchOpened] = useCloseSearchButtonContext();
   const theme = useMantineTheme();
   const handleClick = () => {
-    setOpened((prev) => !prev);
+    setSearchOpened((prev) => !prev);
   };
   return (
     <>
       <Modal
-        opened={opened}
+        opened={seachOpened}
         overlayColor={
           theme.colorScheme === "dark"
             ? theme.colors.dark[9]
@@ -19,7 +20,7 @@ export const SearchBarModal = ({ opened, setOpened }) => {
         overlayOpacity={0.55}
         overlayBlur={3}
         size="lg"
-        onClose={() => setOpened(false)}
+        onClose={handleClick}
         withCloseButton={false}
       >
         {/* Modal Contents */}
@@ -35,7 +36,7 @@ export const SearchBarModal = ({ opened, setOpened }) => {
         </Group>
         {/* SearchBar Inner */}
         <div className="font-semibold px-2 py-2">キーワード</div>
-        <SeachBarDefaultFocus setOpened={setOpened} />
+        <SeachBarDefaultFocus />
       </Modal>
     </>
   );

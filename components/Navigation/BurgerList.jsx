@@ -1,18 +1,18 @@
-import { useState } from "react";
 import { Burger, CloseButton, Drawer, Group } from "@mantine/core";
+import { useCloseBurgerButtonContext } from "../../context/CloseButtonContext";
 
 export const BurgerList = () => {
-  const [opened, setOpened] = useState(false);
-
+  const [buegerOpened, setBurgerOpened] = useCloseBurgerButtonContext();
   const handleClick = () => {
-    setOpened((prev) => !prev);
+    setBurgerOpened((prev) => !prev);
   };
+
   return (
     <>
-      <Burger opened={opened} onClick={handleClick} />
+      <Burger opened={buegerOpened} onClick={handleClick} />
 
       <Drawer
-        opened={opened}
+        opened={buegerOpened}
         onClose={handleClick}
         position="right"
         // title="Register"
