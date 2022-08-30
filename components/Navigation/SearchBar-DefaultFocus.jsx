@@ -9,7 +9,7 @@ export const SeachBarDefaultFocus = ({ setOpened }) => {
           data-autofocus
           onClick={() => setOpened(true)}
           className="px-2 order-solid border-2 rounded-lg border-slate-300"
-          placeholder="Search blog!!!"
+          placeholder="キーワードを入力"
         />
       </div>
     </>

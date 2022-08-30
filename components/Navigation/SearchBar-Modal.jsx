@@ -18,9 +18,11 @@ export const SearchBarModal = ({ opened, setOpened }) => {
         }
         overlayOpacity={0.55}
         overlayBlur={3}
+        size="lg"
         onClose={() => setOpened(false)}
         withCloseButton={false}
       >
+        {/* Modal Contents */}
         <Group position="center">
           <div className="italic">CLOSE</div>
 
@@ -32,6 +34,7 @@ export const SearchBarModal = ({ opened, setOpened }) => {
           />
         </Group>
         {/* SearchBar Inner */}
+        <div className="font-semibold px-2 py-2">キーワード</div>
         <SeachBarDefaultFocus setOpened={setOpened} />
       </Modal>
     </>
