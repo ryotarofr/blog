@@ -8,7 +8,7 @@ import Box from "@mui/material/Box";
 import { BurgerList } from "./BurgerList";
 import { SearchBar } from "./SearchBar";
 
-export const Navbar = () => {
+export const NavBar = () => {
   const [value, setValue] = useState(0);
   const router = useRouter();
 

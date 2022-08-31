@@ -1,4 +1,4 @@
-import { Navbar } from "../components/Navigation/Navbar";
+import { NavBar } from "../components/navigation/NavBar";
 import { CloseButtonProvider } from "../context/CloseButtonContext";
 import "../styles/globals.css";
 
@@ -9,7 +9,7 @@ export default function MyApp({ Component, pageProps }) {
         Fujiiの技術ブログ
       </div>
       <CloseButtonProvider>
-        <Navbar />
+        <NavBar />
         <Component {...pageProps} />
       </CloseButtonProvider>
     </>
