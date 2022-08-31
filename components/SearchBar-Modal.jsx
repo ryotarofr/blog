@@ -1,6 +1,6 @@
 import { Modal, Group, CloseButton, useMantineTheme } from "@mantine/core";
 
-import { useCloseSearchButtonContext } from "../../context/CloseButtonContext";
+import { useCloseSearchButtonContext } from "../context/CloseButtonContext";
 import { SeachBarDefaultFocus } from "./SearchBar-DefaultFocus";
 import { SearchBarSelectButton } from "./SearchBar-SelectButton";
 

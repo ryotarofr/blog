@@ -1,5 +1,5 @@
 import { useFocusTrap } from "@mantine/hooks";
-import { useCloseSearchButtonContext } from "../../context/CloseButtonContext";
+import { useCloseSearchButtonContext } from "../context/CloseButtonContext";
 
 export const SeachBarDefaultFocus = () => {
   const [, setSearchOpened] = useCloseSearchButtonContext();

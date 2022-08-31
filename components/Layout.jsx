@@ -1,9 +1,8 @@
 import BlogTemplateCard from "./BlogTemplateCard";
 import { Header } from "./Header";
 import { HomeTabs } from "./HomeTabs";
+import { NavBar } from "./NavBar";
 import { SideMenuLayout } from "./sideMenu/SideMenuLayout";
-
-import NavBar from "./Navigation/NavBar";
 
 export const Layout = () => {
   return (

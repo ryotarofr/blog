@@ -1,5 +1,5 @@
 import { Burger, CloseButton, Drawer, Group } from "@mantine/core";
-import { useCloseBurgerButtonContext } from "../../context/CloseButtonContext";
+import { useCloseBurgerButtonContext } from "../context/CloseButtonContext";
 
 export const BurgerList = () => {
   const [buegerOpened, setBurgerOpened] = useCloseBurgerButtonContext();

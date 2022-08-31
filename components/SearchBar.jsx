@@ -1,6 +1,6 @@
 import { useRef } from "react";
-import { useCloseSearchButtonContext } from "../../context/CloseButtonContext";
 
+import { useCloseSearchButtonContext } from "../context/CloseButtonContext";
 import { SearchBarModal } from "./SearchBar-Modal";
 
 export const SearchBar = () => {
