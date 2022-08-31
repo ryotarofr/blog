@@ -18,9 +18,8 @@ export default function MyApp({ Component, pageProps }) {
           <HomeTabs />
           <div className="w-11/12 flex justify-between p-10 m-auto">
             <div className="w-7/12">
-              <Layout />
               <Component {...pageProps} />
-              <BlogTemplateCard />
+              <Layout />
             </div>
             <div className="w-4/12">
               <SideMenuLayout />
