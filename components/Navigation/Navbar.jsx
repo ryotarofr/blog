@@ -9,7 +9,7 @@ import { BurgerList } from "./BurgerList";
 import { SearchBar } from "./SearchBar";
 
 export const NavBar = () => {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState("");
   const router = useRouter();
 
   const handleChange = (event, newValue) => {
@@ -29,22 +29,10 @@ export const NavBar = () => {
             aria-label="basic tabs example"
           >
             {/* 随時追加 */}
-            <Tab value={0} label="Home" onClick={() => router.push("/")} />
-            <Tab
-              value={1}
-              label="React"
-              onClick={() => router.push("/react")}
-            />
-            <Tab
-              value={2}
-              label="Python"
-              onClick={() => router.push("/python")}
-            />
-            <Tab
-              value={3}
-              label="その他"
-              onClick={() => router.push("/other")}
-            />
+            <Tab label="Home" onClick={() => router.push("/")} />
+            <Tab label="React" />
+            <Tab label="Python" />
+            <Tab label="その他" />
             <Tab
               value={4}
               label="サイトマップ"
