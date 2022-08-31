@@ -1,8 +1,25 @@
 import BlogTemplateCard from "./BlogTemplateCard";
+import { Header } from "./Header";
+import { HomeTabs } from "./HomeTabs";
+import { NavBar } from "./navigation/NavBar";
+import { SideMenuLayout } from "./sideMenu/SideMenuLayout";
 export const Layout = () => {
   return (
     <>
-      <BlogTemplateCard />
+      <Header />
+      <NavBar />
+      <div className="bg-gray-50">
+        <HomeTabs />
+        <div className="w-11/12 flex justify-between p-10 m-auto">
+          <div className="w-7/12">
+            <BlogTemplateCard />
+          </div>
+
+          <div className="w-4/12">
+            <SideMenuLayout />
+          </div>
+        </div>
+      </div>
     </>
   );
 };
