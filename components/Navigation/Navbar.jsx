@@ -8,8 +8,8 @@ import Box from "@mui/material/Box";
 import { BurgerList } from "./BurgerList";
 import { SearchBar } from "./SearchBar";
 
-export const NavBar = () => {
-  const [value, setValue] = useState("");
+export default function NavBar() {
+  const [value, setValue] = useState(0);
   const router = useRouter();
 
   const handleChange = (event, newValue) => {
@@ -52,4 +52,4 @@ export const NavBar = () => {
       </nav>
     </Box>
   );
-};
+}
