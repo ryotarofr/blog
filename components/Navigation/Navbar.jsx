@@ -16,8 +16,8 @@ export const NavBar = () => {
     setValue(newValue);
   };
   return (
-    <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-      <nav className="container flex justify-around py-5 mx-auto bg-white">
+    <Box sx={{ borderBottom: 1, borderColor: "divider" }} className="">
+      <nav className="container flex justify-around py-5 mx-auto">
         <div className="flex items-center">
           <h3 className="text-2xl font-medium text-blue-500">LOGO</h3>
         </div>
