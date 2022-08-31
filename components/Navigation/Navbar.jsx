@@ -29,11 +29,27 @@ export const NavBar = () => {
             aria-label="basic tabs example"
           >
             {/* 随時追加 */}
-            <Tab label="Home" onClick={() => router.push("/")} />
-            <Tab label="React" onClick={() => router.push("/react")} />
-            <Tab label="Python" onClick={() => router.push("/python")} />
-            <Tab label="その他" onClick={() => router.push("/other")} />
-            <Tab label="サイトマップ" onClick={() => router.push("/sitemap")} />
+            <Tab value={0} label="Home" onClick={() => router.push("/")} />
+            <Tab
+              value={1}
+              label="React"
+              onClick={() => router.push("/react")}
+            />
+            <Tab
+              value={2}
+              label="Python"
+              onClick={() => router.push("/python")}
+            />
+            <Tab
+              value={3}
+              label="その他"
+              onClick={() => router.push("/other")}
+            />
+            <Tab
+              value={4}
+              label="サイトマップ"
+              onClick={() => router.push("/sitemap")}
+            />
           </Tabs>
         </div>
 
