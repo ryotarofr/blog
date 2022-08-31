@@ -1,7 +1,7 @@
 import BlogTemplateCard from "./BlogTemplateCard";
 import { Header } from "./Header";
 import { HomeTabs } from "./HomeTabs";
-import { NavBar } from "./navigation/NavBar";
+import { NavBar } from "./Navigation/NavBar";
 import { SideMenuLayout } from "./sideMenu/SideMenuLayout";
 export const Layout = () => {
   return (
