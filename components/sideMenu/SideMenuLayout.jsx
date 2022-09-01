@@ -1,14 +1,17 @@
+import { MyAvatar } from "./MyAvatar";
+
 export const SideMenuLayout = () => {
   return (
     <>
       <section>
         <div className="bg-white shadow-lg py-8">
           <div className="flex justify-center">
-            <img
+            {/* <img
               className="w-fit max-h-20 pt-8 pb-4"
               src="https://pbs.twimg.com/media/DRdc9zhVwAQG21-.png"
               alt="プロフィール画像"
-            />
+            /> */}
+            <MyAvatar />
           </div>
           <div className="py-12 mx-8 text-center text-xl font-mono border-b-2 border-gray-300 ">
             藤井
