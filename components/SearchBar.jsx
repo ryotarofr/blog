@@ -1,36 +1,35 @@
-import { useRef } from "react";
+import { Kbd, TextInput } from "@mantine/core";
+import { IconSearch } from "@tabler/icons";
 
 import { useCloseSearchButtonContext } from "../context/CloseButtonContext";
 import { SearchBarModal } from "./SearchBar-Modal";
 
 export const SearchBar = () => {
-  const inputRef = useRef();
   const [, setSearchOpened] = useCloseSearchButtonContext();
   const handleClick = () => {
     setSearchOpened((prev) => !prev);
   };
 
+  const rightSection = (
+    <div style={{ display: "flex", alignItems: "center" }}>
+      <Kbd>Ctrl</Kbd>
+      <span style={{ margin: "0 5px" }}>+</span>
+      <Kbd>K</Kbd>
+    </div>
+  );
+
   return (
     <>
       {/* SearchBar */}
-
-      <svg
-        className="absolute text-slate-400 pl-2 h-9 w-7"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-      >
-        <path
-          fillRule="evenodd"
-          d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-          clipRule="evenodd"
-        />
-      </svg>
-      <input
+      <TextInput
         onClick={handleClick}
-        ref={inputRef}
-        className="py-1 pr-2 pl-6 order-solid border-2 rounded-lg border-slate-300"
-        placeholder="  Search"
+        placeholder="Search"
+        icon={<IconSearch size={16} />}
+        rightSectionWidth={90}
+        rightSection={rightSection}
+        styles={{ rightSection: { pointerEvents: "none" } }}
       />
+
       {/* SearchBar Inner */}
       <SearchBarModal />
     </>
