@@ -5,7 +5,12 @@ import Fade from "@mui/material/Fade";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 
+import { useMediaQueryContext } from "../context/MediaQueryContext";
+
 export const NavBarMenu = () => {
+  // メディアクエリ
+  const { isMobileSite, isTabletSite, isPcSite } = useMediaQueryContext();
+  // メニュートグル
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -61,18 +66,38 @@ export const NavBarMenu = () => {
 
   return (
     <>
-      <div>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          aria-label="basic tabs example"
-        >
-          <Tab value={0} label="Home" onClick={handleClick} />
-          <Tab value={1} label="Code" onClick={handleClick} />
-          <Tab value={2} label="Life" onClick={handleClick} />
-        </Tabs>
-        {menu()}
-      </div>
+      {/* モバイル */}
+      {isMobileSite && (
+        <div>
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            aria-label="basic tabs example"
+            orientation="vertical"
+          >
+            <Tab value={0} label="Home" onClick={handleClick} />
+            <Tab value={1} label="Code" onClick={handleClick} />
+            <Tab value={2} label="Life" onClick={handleClick} />
+          </Tabs>
+          {menu()}
+        </div>
+      )}
+      {/* タブレット(必要になり次第追加) */}
+      {/* PC */}
+      {isPcSite && (
+        <div>
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            aria-label="basic tabs example"
+          >
+            <Tab value={0} label="Home" onClick={handleClick} />
+            <Tab value={1} label="Code" onClick={handleClick} />
+            <Tab value={2} label="Life" onClick={handleClick} />
+          </Tabs>
+          {menu()}
+        </div>
+      )}
     </>
   );
 };

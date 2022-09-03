@@ -1,5 +1,8 @@
 import { useFocusTrap } from "@mantine/hooks";
+import { TextInput } from "@mantine/core";
+
 import { useCloseSearchButtonContext } from "../context/CloseButtonContext";
+import { useMediaQueryContext } from "../context/MediaQueryContext";
 
 export const SeachBarDefaultFocus = () => {
   const [, setSearchOpened] = useCloseSearchButtonContext();
@@ -7,17 +10,28 @@ export const SeachBarDefaultFocus = () => {
   const handleClick = () => {
     setSearchOpened((prev) => !prev);
   };
+  // メディアクエリ
+  const { isMobileSite, isTabletSite, isPcSite } = useMediaQueryContext();
   return (
     <>
-      <div ref={focusTrapRef} className="text-center">
-        <input
-          size={65}
-          data-autofocus
-          onClick={handleClick}
-          className="px-2 py-1 order-solid border-2 rounded-lg border-slate-300"
-          placeholder="キーワードを入力"
-        />
-      </div>
+      {isMobileSite && (
+        <div ref={focusTrapRef} className="text-center">
+          <TextInput
+            data-autofocus
+            onClick={handleClick}
+            placeholder="キーワードを入力"
+          />
+        </div>
+      )}
+      {isPcSite && (
+        <div ref={focusTrapRef} className="text-center">
+          <TextInput
+            data-autofocus
+            onClick={handleClick}
+            placeholder="キーワードを入力"
+          />
+        </div>
+      )}
     </>
   );
 };
