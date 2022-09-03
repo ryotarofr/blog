@@ -10,6 +10,7 @@ export const SearchBarModal = () => {
   const handleClick = () => {
     setSearchOpened((prev) => !prev);
   };
+
   return (
     <>
       <Modal
@@ -37,10 +38,12 @@ export const SearchBarModal = () => {
           />
         </Group>
         {/* SearchBar Inner */}
+
         <div className="font-semibold px-2 py-2">キーワード</div>
         <SeachBarDefaultFocus />
         <div className="font-semibold pt-6 px-2 py-2">カテゴリー</div>
         <SearchBarSelectButton />
+
         <br />
         <br />
       </Modal>
