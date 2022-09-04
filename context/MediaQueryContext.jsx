@@ -24,7 +24,7 @@ export const MediaQueryProvider = ({ children }) => {
     () => ({ isMobileSite, isTabletSite, isPcSite }),
     [isMobileSite, isTabletSite, isPcSite]
   );
-  console.log(value);
+
   return (
     <MediaQueryContext.Provider value={value}>
       {children}
