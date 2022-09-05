@@ -8,7 +8,6 @@ export default function MyApp({ Component, pageProps }) {
     <>
       <MediaQueryProvider>
         <CloseButtonProvider>
-          <Layout />
           <Component {...pageProps} />
         </CloseButtonProvider>
       </MediaQueryProvider>
