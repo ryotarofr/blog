@@ -2,8 +2,8 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateBlog = /* GraphQL */ `
-  subscription OnCreateBlog($filter: ModelSubscriptionBlogFilterInput) {
-    onCreateBlog(filter: $filter) {
+  subscription OnCreateBlog($username: String) {
+    onCreateBlog(username: $username) {
       id
       name
       posts {
@@ -13,17 +13,19 @@ export const onCreateBlog = /* GraphQL */ `
           createdAt
           updatedAt
           blogPostsId
+          username
         }
         nextToken
       }
       createdAt
       updatedAt
+      username
     }
   }
 `;
 export const onUpdateBlog = /* GraphQL */ `
-  subscription OnUpdateBlog($filter: ModelSubscriptionBlogFilterInput) {
-    onUpdateBlog(filter: $filter) {
+  subscription OnUpdateBlog($username: String) {
+    onUpdateBlog(username: $username) {
       id
       name
       posts {
@@ -33,17 +35,19 @@ export const onUpdateBlog = /* GraphQL */ `
           createdAt
           updatedAt
           blogPostsId
+          username
         }
         nextToken
       }
       createdAt
       updatedAt
+      username
     }
   }
 `;
 export const onDeleteBlog = /* GraphQL */ `
-  subscription OnDeleteBlog($filter: ModelSubscriptionBlogFilterInput) {
-    onDeleteBlog(filter: $filter) {
+  subscription OnDeleteBlog($username: String) {
+    onDeleteBlog(username: $username) {
       id
       name
       posts {
@@ -53,17 +57,19 @@ export const onDeleteBlog = /* GraphQL */ `
           createdAt
           updatedAt
           blogPostsId
+          username
         }
         nextToken
       }
       createdAt
       updatedAt
+      username
     }
   }
 `;
 export const onCreatePost = /* GraphQL */ `
-  subscription OnCreatePost($filter: ModelSubscriptionPostFilterInput) {
-    onCreatePost(filter: $filter) {
+  subscription OnCreatePost($username: String) {
+    onCreatePost(username: $username) {
       id
       title
       blog {
@@ -74,6 +80,7 @@ export const onCreatePost = /* GraphQL */ `
         }
         createdAt
         updatedAt
+        username
       }
       comments {
         items {
@@ -82,18 +89,20 @@ export const onCreatePost = /* GraphQL */ `
           createdAt
           updatedAt
           postCommentsId
+          username
         }
         nextToken
       }
       createdAt
       updatedAt
       blogPostsId
+      username
     }
   }
 `;
 export const onUpdatePost = /* GraphQL */ `
-  subscription OnUpdatePost($filter: ModelSubscriptionPostFilterInput) {
-    onUpdatePost(filter: $filter) {
+  subscription OnUpdatePost($username: String) {
+    onUpdatePost(username: $username) {
       id
       title
       blog {
@@ -104,6 +113,7 @@ export const onUpdatePost = /* GraphQL */ `
         }
         createdAt
         updatedAt
+        username
       }
       comments {
         items {
@@ -112,18 +122,20 @@ export const onUpdatePost = /* GraphQL */ `
           createdAt
           updatedAt
           postCommentsId
+          username
         }
         nextToken
       }
       createdAt
       updatedAt
       blogPostsId
+      username
     }
   }
 `;
 export const onDeletePost = /* GraphQL */ `
-  subscription OnDeletePost($filter: ModelSubscriptionPostFilterInput) {
-    onDeletePost(filter: $filter) {
+  subscription OnDeletePost($username: String) {
+    onDeletePost(username: $username) {
       id
       title
       blog {
@@ -134,6 +146,7 @@ export const onDeletePost = /* GraphQL */ `
         }
         createdAt
         updatedAt
+        username
       }
       comments {
         items {
@@ -142,18 +155,20 @@ export const onDeletePost = /* GraphQL */ `
           createdAt
           updatedAt
           postCommentsId
+          username
         }
         nextToken
       }
       createdAt
       updatedAt
       blogPostsId
+      username
     }
   }
 `;
 export const onCreateComment = /* GraphQL */ `
-  subscription OnCreateComment($filter: ModelSubscriptionCommentFilterInput) {
-    onCreateComment(filter: $filter) {
+  subscription OnCreateComment($username: String) {
+    onCreateComment(username: $username) {
       id
       post {
         id
@@ -163,6 +178,7 @@ export const onCreateComment = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          username
         }
         comments {
           nextToken
@@ -170,17 +186,19 @@ export const onCreateComment = /* GraphQL */ `
         createdAt
         updatedAt
         blogPostsId
+        username
       }
       content
       createdAt
       updatedAt
       postCommentsId
+      username
     }
   }
 `;
 export const onUpdateComment = /* GraphQL */ `
-  subscription OnUpdateComment($filter: ModelSubscriptionCommentFilterInput) {
-    onUpdateComment(filter: $filter) {
+  subscription OnUpdateComment($username: String) {
+    onUpdateComment(username: $username) {
       id
       post {
         id
@@ -190,6 +208,7 @@ export const onUpdateComment = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          username
         }
         comments {
           nextToken
@@ -197,17 +216,19 @@ export const onUpdateComment = /* GraphQL */ `
         createdAt
         updatedAt
         blogPostsId
+        username
       }
       content
       createdAt
       updatedAt
       postCommentsId
+      username
     }
   }
 `;
 export const onDeleteComment = /* GraphQL */ `
-  subscription OnDeleteComment($filter: ModelSubscriptionCommentFilterInput) {
-    onDeleteComment(filter: $filter) {
+  subscription OnDeleteComment($username: String) {
+    onDeleteComment(username: $username) {
       id
       post {
         id
@@ -217,6 +238,7 @@ export const onDeleteComment = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          username
         }
         comments {
           nextToken
@@ -224,11 +246,13 @@ export const onDeleteComment = /* GraphQL */ `
         createdAt
         updatedAt
         blogPostsId
+        username
       }
       content
       createdAt
       updatedAt
       postCommentsId
+      username
     }
   }
 `;

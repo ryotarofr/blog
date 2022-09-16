@@ -16,11 +16,13 @@ export const createBlog = /* GraphQL */ `
           createdAt
           updatedAt
           blogPostsId
+          username
         }
         nextToken
       }
       createdAt
       updatedAt
+      username
     }
   }
 `;
@@ -39,11 +41,13 @@ export const updateBlog = /* GraphQL */ `
           createdAt
           updatedAt
           blogPostsId
+          username
         }
         nextToken
       }
       createdAt
       updatedAt
+      username
     }
   }
 `;
@@ -62,11 +66,13 @@ export const deleteBlog = /* GraphQL */ `
           createdAt
           updatedAt
           blogPostsId
+          username
         }
         nextToken
       }
       createdAt
       updatedAt
+      username
     }
   }
 `;
@@ -86,6 +92,7 @@ export const createPost = /* GraphQL */ `
         }
         createdAt
         updatedAt
+        username
       }
       comments {
         items {
@@ -94,12 +101,14 @@ export const createPost = /* GraphQL */ `
           createdAt
           updatedAt
           postCommentsId
+          username
         }
         nextToken
       }
       createdAt
       updatedAt
       blogPostsId
+      username
     }
   }
 `;
@@ -119,6 +128,7 @@ export const updatePost = /* GraphQL */ `
         }
         createdAt
         updatedAt
+        username
       }
       comments {
         items {
@@ -127,12 +137,14 @@ export const updatePost = /* GraphQL */ `
           createdAt
           updatedAt
           postCommentsId
+          username
         }
         nextToken
       }
       createdAt
       updatedAt
       blogPostsId
+      username
     }
   }
 `;
@@ -152,6 +164,7 @@ export const deletePost = /* GraphQL */ `
         }
         createdAt
         updatedAt
+        username
       }
       comments {
         items {
@@ -160,12 +173,14 @@ export const deletePost = /* GraphQL */ `
           createdAt
           updatedAt
           postCommentsId
+          username
         }
         nextToken
       }
       createdAt
       updatedAt
       blogPostsId
+      username
     }
   }
 `;
@@ -184,6 +199,7 @@ export const createComment = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          username
         }
         comments {
           nextToken
@@ -191,11 +207,13 @@ export const createComment = /* GraphQL */ `
         createdAt
         updatedAt
         blogPostsId
+        username
       }
       content
       createdAt
       updatedAt
       postCommentsId
+      username
     }
   }
 `;
@@ -214,6 +232,7 @@ export const updateComment = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          username
         }
         comments {
           nextToken
@@ -221,11 +240,13 @@ export const updateComment = /* GraphQL */ `
         createdAt
         updatedAt
         blogPostsId
+        username
       }
       content
       createdAt
       updatedAt
       postCommentsId
+      username
     }
   }
 `;
@@ -244,6 +265,7 @@ export const deleteComment = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          username
         }
         comments {
           nextToken
@@ -251,11 +273,13 @@ export const deleteComment = /* GraphQL */ `
         createdAt
         updatedAt
         blogPostsId
+        username
       }
       content
       createdAt
       updatedAt
       postCommentsId
+      username
     }
   }
 `;

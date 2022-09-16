@@ -3,16 +3,33 @@
     "blog": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
-      "dependsOn": [],
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "blog3d8003ba",
+          "attributes": [
+            "UserPoolId"
+          ]
+        }
+      ],
       "output": {
         "authConfig": {
           "defaultAuthentication": {
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
-              "apiKeyExpirationDays": 7
+              "apiKeyExpirationDays": 30,
+              "apiKeyExpirationDate": "2022-10-16T07:42:48.201Z",
+              "description": "FR-blog"
             }
           },
-          "additionalAuthenticationProviders": []
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authblog3d8003ba"
+              }
+            }
+          ]
         }
       }
     }

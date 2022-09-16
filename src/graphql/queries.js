@@ -13,11 +13,13 @@ export const getBlog = /* GraphQL */ `
           createdAt
           updatedAt
           blogPostsId
+          username
         }
         nextToken
       }
       createdAt
       updatedAt
+      username
     }
   }
 `;
@@ -36,6 +38,7 @@ export const listBlogs = /* GraphQL */ `
         }
         createdAt
         updatedAt
+        username
       }
       nextToken
     }
@@ -54,6 +57,7 @@ export const getPost = /* GraphQL */ `
         }
         createdAt
         updatedAt
+        username
       }
       comments {
         items {
@@ -62,12 +66,14 @@ export const getPost = /* GraphQL */ `
           createdAt
           updatedAt
           postCommentsId
+          username
         }
         nextToken
       }
       createdAt
       updatedAt
       blogPostsId
+      username
     }
   }
 `;
@@ -86,6 +92,7 @@ export const listPosts = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          username
         }
         comments {
           nextToken
@@ -93,6 +100,7 @@ export const listPosts = /* GraphQL */ `
         createdAt
         updatedAt
         blogPostsId
+        username
       }
       nextToken
     }
@@ -110,6 +118,7 @@ export const getComment = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          username
         }
         comments {
           nextToken
@@ -117,11 +126,13 @@ export const getComment = /* GraphQL */ `
         createdAt
         updatedAt
         blogPostsId
+        username
       }
       content
       createdAt
       updatedAt
       postCommentsId
+      username
     }
   }
 `;
@@ -140,11 +151,13 @@ export const listComments = /* GraphQL */ `
           createdAt
           updatedAt
           blogPostsId
+          username
         }
         content
         createdAt
         updatedAt
         postCommentsId
+        username
       }
       nextToken
     }
