@@ -34,19 +34,64 @@ function MyPost() {
 
   return (
     <div>
-      <h1 className="text-3xl font-semibold tracking-wide md-6">
-        Create New Post
-      </h1>
-      <input onChange={onChange} name="name" placeholder="Name" value={name} />
-      <button
-        type="button"
-        onClick={createNewPost}
-        className="mb-4 bg-blue-600 text-white font-semibold px-8 py-2 rounded-lg"
-      >
-        Create Post
-      </button>
+      <div className="flex justify-center">
+        <h1 className="text-3xl font-semibold tracking-wide pt-10 pb-2">
+          Create New Post
+        </h1>
+      </div>
+      <div className="flex justify-center">
+        <input
+          onChange={onChange}
+          name="name"
+          placeholder="Name"
+          value={name}
+          className="mb-4 border"
+        />
+        <button
+          type="button"
+          onClick={createNewPost}
+          className="mb-4 bg-blue-600 text-white font-semibold px-8 py-2 rounded-lg"
+        >
+          Create Post
+        </button>
+      </div>
+      <div className="grid place-items-center">
+        <Test />
+      </div>
     </div>
   );
 }
 
 export default withAuthenticator(MyPost);
+
+import { useEffect } from "react";
+
+import { listBlogs } from "../src/graphql/queries";
+
+function Test() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetchPosts();
+  }, [posts]);
+
+  async function fetchPosts() {
+    const postData = await API.graphql({ query: listBlogs });
+    const { items } = postData.data.listBlogs;
+    const postTitle = await Promise.all(
+      items.map(async (post) => {
+        if (post.name) return post;
+      })
+    );
+
+    setPosts(postTitle);
+  }
+
+  return (
+    <>
+      {posts.map((post, index) => (
+        <div key={index}>{post.name}</div>
+      ))}
+    </>
+  );
+}
