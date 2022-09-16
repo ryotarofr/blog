@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { Auth, Hub } from "aws-amplify";
+import { useState, useEffect } from "react";
+import Link from "next/link";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Fade from "@mui/material/Fade";
@@ -6,8 +8,31 @@ import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 
 import { useMediaQueryContext } from "../context/MediaQueryContext";
+import "../configureAmplify";
 
 export const NavBarMenu = () => {
+  // サインインの状態管理
+  const [signedUser, setSignedUser] = useState(false);
+
+  useEffect(() => {
+    authListener();
+  }, []);
+
+  async function authListener() {
+    Hub.listen("auth", (data) => {
+      switch (data.payload.event) {
+        case "signIn":
+          return setSignedUser(true);
+        case "signOut":
+          return setSignedUser(false);
+      }
+    });
+    try {
+      await Auth.currentAuthenticatedUser();
+      setSignedUser(true);
+    } catch (error) {}
+  }
+
   // メディアクエリ
   const { isMobileSite, isTabletSite, isPcSite } = useMediaQueryContext();
   // メニュートグル
@@ -96,6 +121,17 @@ export const NavBarMenu = () => {
             <Tab value={2} label="Life" onClick={handleClick} />
           </Tabs>
           {menu()}
+          <Link href="/profile">
+            <button>ログイン</button>
+          </Link>
+          {/* サインイン時表示 */}
+          {signedUser && (
+            <Link href="my-posts">
+              <a className="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate100 hover:bg-slate-900">
+                My Post
+              </a>
+            </Link>
+          )}
         </div>
       )}
     </>

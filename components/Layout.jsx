@@ -1,9 +1,7 @@
 import { useMediaQueryContext } from "../context/MediaQueryContext";
 
 import BlogTemplateCard from "./BlogTemplateCard";
-import { Header } from "./Header";
 import { HomeTabs } from "./HomeTabs";
-import { NavBar } from "./NavBar";
 import { SideMenuLayout } from "./sideMenu/SideMenuLayout";
 
 export const Layout = () => {
@@ -15,8 +13,7 @@ export const Layout = () => {
       {/* モバイル */}
       {isMobileSite && (
         <>
-          <Header />
-          <NavBar />
+          
           <div className="bg-gray-50">
             <HomeTabs />
             <div className="flex justify-center p-5">
@@ -32,8 +29,7 @@ export const Layout = () => {
       {/* PC */}
       {isPcSite && (
         <>
-          <Header />
-          <NavBar />
+          
           <div className="bg-gray-50">
             <HomeTabs />
             <div className="w-11/12 flex justify-between p-10 m-auto">

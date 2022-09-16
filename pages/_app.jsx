@@ -1,5 +1,6 @@
 import "../styles/globals.css";
-import { Layout } from "../components/Layout";
+
+import { Header } from "../components/Header";
 import { CloseButtonProvider } from "../context/CloseButtonContext";
 import { MediaQueryProvider } from "../context/MediaQueryContext";
 
@@ -8,6 +9,7 @@ export default function MyApp({ Component, pageProps }) {
     <>
       <MediaQueryProvider>
         <CloseButtonProvider>
+          <Header />
           <Component {...pageProps} />
         </CloseButtonProvider>
       </MediaQueryProvider>
