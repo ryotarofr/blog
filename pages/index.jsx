@@ -1,5 +1,6 @@
 import { API } from "aws-amplify";
 import { useEffect, useState } from "react";
+
 import { Layout } from "../components/Layout";
 import { listBlogs } from "../src/graphql/queries";
 
