@@ -100,7 +100,9 @@ export const NavBarMenu = () => {
             aria-label="basic tabs example"
             orientation="vertical"
           >
-            <Tab value={0} label="Home" onClick={handleClick} />
+            <Link href="/">
+              <Tab value={0} label="Home" onClick={handleClick} />
+            </Link>
             <Tab value={1} label="Code" onClick={handleClick} />
             <Tab value={2} label="Life" onClick={handleClick} />
           </Tabs>
@@ -116,7 +118,9 @@ export const NavBarMenu = () => {
             onChange={handleChange}
             aria-label="basic tabs example"
           >
-            <Tab value={0} label="Home" onClick={handleClick} />
+            <Link href="/">
+              <Tab value={0} label="Home" onClick={handleClick} />
+            </Link>
             <Tab value={1} label="Code" onClick={handleClick} />
             <Tab value={2} label="Life" onClick={handleClick} />
           </Tabs>
@@ -126,11 +130,18 @@ export const NavBarMenu = () => {
           </Link>
           {/* サインイン時表示 */}
           {signedUser && (
-            <Link href="my-posts">
-              <a className="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate100 hover:bg-slate-900">
-                My Post
-              </a>
-            </Link>
+            <>
+              <Link href="/my-posts">
+                <a className="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate100 hover:bg-slate-900">
+                  My Post
+                </a>
+              </Link>
+              <Link href="/create-post">
+                <a className="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate100 hover:bg-slate-900">
+                  Create Post
+                </a>
+              </Link>
+            </>
           )}
         </div>
       )}

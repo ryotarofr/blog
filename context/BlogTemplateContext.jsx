@@ -1,14 +1,17 @@
-{
-  /* 
-Dashボードの
-1ページ目(カテゴリー選択)
-　ファイルルート、拡張子を設定する⇨OKボタン押す
-2ページ目
-  日付、タイトル、イメージ画像、見出しをデフォルトの形式でinputフィールドに入力⇨保存ボタン
+import { createContext, useContext, useState } from "react";
 
-pagesフォルダ任意のディレクトリに新規のjsxが生成
+// Contextの作成
+const BlogTemplateContext = createContext();
 
-本文はリッチテキストエディタで入力できるようにしたい⇨wordpressパクる感じでやっていこう
-　
-*/
-}
+export const BlogTemplateProvider = ({ children }) => {
+  const [cards, setCards] = useState([]);
+
+  return (
+    <BlogTemplateContext.Provider value={[cards, setCards]}>
+      {children}
+    </BlogTemplateContext.Provider>
+  );
+};
+
+// 作成したContextを外部から使いやすいようにする
+export const useBlogTemplateContext = () => useContext(BlogTemplateContext);

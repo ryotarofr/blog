@@ -1,81 +1,63 @@
-import { Amplify, API, withSSRContext } from "aws-amplify";
-
-import { useRouter } from "next/router";
-import awsExports from "../../src/aws-exports";
-import { deletePost } from "../../src/graphql/mutations";
+import { API } from "aws-amplify";
+import { useEffect } from "react";
+import { SideMenuLayout } from "../../components/sideMenu/SideMenuLayout";
 import { getPost, listPosts } from "../../src/graphql/queries";
-import styles from "../../styles/Home.module.css";
 
-Amplify.configure({ ...awsExports, ssr: true });
+export default function Posts({ post }) {
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
+  async function fetchPosts() {
+    const postData = await API.graphql({ query: getPost });
+    setCards(postData.data.getPost);
+  }
+
+  return (
+    <>
+      <div className="bg-gray-50">
+        <div className="w-11/12 flex justify-between p-10 m-auto">
+          <div className="w-7/12">
+            <h1 className="flex justify-center text-4xl text-gray-500">
+              {post.title}
+            </h1>
+            <div>{post.content}</div>
+          </div>
+
+          <div className="w-4/12">
+            <SideMenuLayout />
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
 
 export async function getStaticPaths() {
-  const SSR = withSSRContext();
-  const { data } = await SSR.API.graphql({ query: listPosts });
-  const paths = data.listPosts.items.map((post) => ({
-    params: { id: post.id },
+  const postData = await API.graphql({
+    query: listPosts,
+  });
+  const paths = postData.data.listPosts.items.map((post) => ({
+    params: {
+      id: post.id,
+    },
   }));
-
   return {
-    fallback: true,
     paths,
+    fallback: true,
   };
 }
 
 export async function getStaticProps({ params }) {
-  const SSR = withSSRContext();
-  const { data } = await SSR.API.graphql({
+  const { id } = params;
+  const postData = await API.graphql({
     query: getPost,
-    variables: {
-      id: params.id,
-    },
+    variables: { id },
   });
-
   return {
     props: {
-      post: data.getPost,
+      post: postData.data.getPost,
     },
+    revalidate: 1,
   };
-}
-
-export default function Post({ post }) {
-  const router = useRouter();
-
-  if (router.isFallback) {
-    return (
-      <div className={styles.container}>
-        <h1 className={styles.title}>Loading&hellip;</h1>
-      </div>
-    );
-  }
-
-  async function handleDelete() {
-    try {
-      await API.graphql({
-        authMode: "AMAZON_COGNITO_USER_POOLS",
-        query: deletePost,
-        variables: {
-          input: { id: post.id },
-        },
-      });
-
-      window.location.href = "/";
-    } catch ({ errors }) {
-      console.error(...errors);
-      throw new Error(errors[0].message);
-    }
-  }
-
-  return (
-    <div>
-      <main>
-        <h1>{post.title}</h1>
-
-        <p>{post.content}</p>
-      </main>
-
-      <footer>
-        <button onClick={handleDelete}>💥 Delete post</button>
-      </footer>
-    </div>
-  );
 }

@@ -4,16 +4,19 @@ import { Header } from "../components/Header";
 
 import { CloseButtonProvider } from "../context/CloseButtonContext";
 import { MediaQueryProvider } from "../context/MediaQueryContext";
-import { Tiptap } from "../components/Editor/index";
+import { BlogTemplateProvider } from "../context/BlogTemplateContext";
+import { Layout } from "../components/Layout";
 
 export default function MyApp({ Component, pageProps }) {
   return (
     <>
       <MediaQueryProvider>
         <CloseButtonProvider>
-          <Header />
-          <Component {...pageProps} />
-          <Tiptap />
+          <BlogTemplateProvider>
+            <Header />
+
+            <Component {...pageProps} />
+          </BlogTemplateProvider>
         </CloseButtonProvider>
       </MediaQueryProvider>
     </>
