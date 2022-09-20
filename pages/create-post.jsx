@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 
 import { useState } from "react";
 import { v4 as uuid } from "uuid";
-import { Tiptap } from "../components/Editor";
 import { createPost } from "../src/graphql/mutations";
 
 const initialState = { title: "", content: "" };
